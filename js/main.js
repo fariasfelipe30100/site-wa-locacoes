@@ -186,11 +186,22 @@
     var carregar = function () {
       var src = window.innerWidth <= 700 && video.dataset.srcMobile ? video.dataset.srcMobile : video.dataset.src;
       video.src = src;
-      video.addEventListener("canplay", function () {
+      // Ciclo: toca, no fim se dissolve no primeiro quadro (a foto de fundo) e recomeça sozinho
+      var tocar = function () {
         var p = video.play();
         if (p && p.then) p.then(function () { video.classList.add("pronto"); }).catch(function () {});
         else video.classList.add("pronto");
-      }, { once: true });
+      };
+      var fadeSai = false;
+      video.addEventListener("timeupdate", function () {
+        if (!fadeSai && video.duration && video.duration - video.currentTime < 1.5) {
+          fadeSai = true; video.classList.remove("pronto");
+        }
+      });
+      video.addEventListener("ended", function () {
+        setTimeout(function () { video.currentTime = 0; fadeSai = false; tocar(); }, 400);
+      });
+      video.addEventListener("canplay", tocar, { once: true });
       video.load();
     };
     if (document.readyState === "complete") setTimeout(carregar, 300);

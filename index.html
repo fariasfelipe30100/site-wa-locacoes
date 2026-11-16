@@ -17,7 +17,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/hero.webp">
+<link rel="preload" as="image" href="img/hero-poster.webp" media="(min-width: 701px)">
+<link rel="preload" as="image" href="img/hero-poster-mobile.webp" media="(max-width: 700px)">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -79,8 +80,11 @@
 <!-- ============ HERO ============ -->
 <section class="hero" id="inicio">
   <div class="hero__midia" aria-hidden="true">
-    <img class="hero__poster" src="img/hero.webp" alt="" width="1920" height="841">
-    <video class="hero__video" muted playsinline preload="none" poster="img/hero.webp" data-src="img/hero.mp4" data-src-mobile="img/hero-mobile.mp4"></video>
+    <picture>
+      <source media="(max-width: 700px)" srcset="img/hero-poster-mobile.webp">
+      <img class="hero__poster" src="img/hero-poster.webp" alt="" width="1920" height="1080">
+    </picture>
+    <video class="hero__video" muted playsinline preload="none" data-src="img/hero.mp4" data-src-mobile="img/hero-mobile.mp4"></video>
   </div>
   <div class="hero__veu" aria-hidden="true"></div>
   <div class="hero__grade" aria-hidden="true"></div>
@@ -270,7 +274,7 @@
     </div>
 
     <div class="valores__rodape revelar">
-      <p><svg><use href="#i-cartao"/></svg>Todos os valores em até <b>4x sem juros</b>.</p>
+      <p><svg><use href="#i-cartao"/></svg><span>Todos os valores em até <b>4x sem juros</b>.</span></p>
       <a class="btn btn--laranja btn--g" data-wa="Olá! Vi os valores no site e gostaria de fazer um pedido." href="#"><svg><use href="#i-whats"/></svg>Fazer meu pedido</a>
     </div>
   </div>
