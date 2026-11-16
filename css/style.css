@@ -84,7 +84,7 @@ em{font-style:normal;color:var(--laranja)}
 .marca__nome{font-family:"Saira",sans-serif;font-weight:600;font-size:.9rem;line-height:1.05;letter-spacing:.16em;text-transform:uppercase;color:#fff;padding-left:.8rem;border-left:1.5px solid var(--laranja);transition:color .3s}
 .topo.rolou .marca__nome{color:var(--azul)}
 .menu{display:flex;gap:.2rem;margin-left:auto}
-.menu a{font-family:var(--titulo);font-weight:600;font-size:.92rem;padding:.6rem .85rem;position:relative;color:rgba(255,255,255,.9);transition:color .25s}
+.menu a{font-family:var(--titulo);font-weight:600;font-size:.92rem;padding:.6rem .85rem;white-space:nowrap;position:relative;color:rgba(255,255,255,.9);transition:color .25s}
 .topo.rolou .menu a{color:var(--texto)}
 .menu a::after{content:"";position:absolute;left:.85rem;right:.85rem;bottom:.2rem;height:2.5px;border-radius:2px;background:var(--laranja);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
 .menu a:hover::after,.menu a.ativo::after{transform:scaleX(1)}
@@ -404,7 +404,7 @@ em{font-style:normal;color:var(--laranja)}
   .rodape__in{grid-template-columns:1fr 1fr}
   .rodape__mapa{grid-column:1/-1}
 }
-@media (max-width:1000px){
+@media (max-width:1140px){
   :root{--topo:4.4rem}
   .hamburguer{display:block}
   .topo__cta{display:none}
@@ -417,6 +417,8 @@ em{font-style:normal;color:var(--laranja)}
   .menu a,.topo.rolou .menu a{color:var(--texto);padding:1rem .2rem;border-bottom:1px solid var(--linha);font-size:1.05rem}
   .menu a::after{display:none}
   .menu .menu__cta-mobile{display:inline-flex;margin-top:1rem;border:0;color:#fff;padding:1rem}
+}
+@media (max-width:1000px){
   .selos{grid-template-columns:repeat(2,auto);row-gap:1rem}
   .selos li:nth-child(3){border-left:0;padding-left:0}
   .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto}
