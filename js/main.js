@@ -194,12 +194,17 @@
       };
       var fadeSai = false;
       video.addEventListener("timeupdate", function () {
-        if (!fadeSai && video.duration && video.duration - video.currentTime < 1.5) {
+        if (!fadeSai && video.duration && video.duration - video.currentTime < 0.9) {
           fadeSai = true; video.classList.remove("pronto");
         }
       });
-      video.addEventListener("ended", function () {
-        setTimeout(function () { video.currentTime = 0; fadeSai = false; tocar(); }, 400);
+      video.addEventListener("ended", function () { video.currentTime = 0; fadeSai = false; tocar(); });
+      // Se o navegador pausar (aba em segundo plano, economia de energia), volta a tocar
+      document.addEventListener("visibilitychange", function () {
+        if (!document.hidden && video.paused && video.src) tocar();
+      });
+      video.addEventListener("pause", function () {
+        if (!document.hidden && !video.ended) setTimeout(function () { if (video.paused) tocar(); }, 600);
       });
       video.addEventListener("canplay", tocar, { once: true });
       video.load();

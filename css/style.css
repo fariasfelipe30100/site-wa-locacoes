@@ -107,7 +107,7 @@ em{font-style:normal;color:var(--laranja)}
 .hero__midia{position:absolute;inset:0}
 .hero__poster,.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 50%}
 .hero__poster{}
-.hero__video{opacity:0;transition:opacity 1.4s ease}
+.hero__video{opacity:0;transition:opacity .9s ease}
 .hero__video.pronto{opacity:1}
 @keyframes respira{from{transform:scale(1.02)}to{transform:scale(1.1) translate(-1%,1%)}}
 .hero__veu{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,16,20,.92) 0%,rgba(14,16,20,.72) 30%,rgba(14,16,20,.15) 62%,rgba(14,16,20,0) 80%),linear-gradient(0deg,rgba(14,16,20,.85) 0%,rgba(14,16,20,0) 38%),linear-gradient(180deg,rgba(14,16,20,.55) 0%,rgba(14,16,20,0) 22%)}
